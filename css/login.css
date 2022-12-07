@@ -1,0 +1,70 @@
+body{
+    background-image: url(../img/wallpaper2.jpg);
+    background-size: cover;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.login_header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 30px;
+    background-color:  #f4d452ad;
+    border-radius: 20px;
+}
+
+.login_header img{
+    width: 200px;
+    
+    
+}
+
+.login_header h1{
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+   
+    padding: 10px;
+    
+}
+.login_header h2{
+    color: #205022;
+    
+    padding: 10px;
+    
+}
+.login_input{
+    border: 2px solid #333;
+    border-radius: 8px;
+    color: #333;
+    font-size: 1em;
+    margin-bottom: 15px;
+    max-width: 400px;
+    width: 100%;
+    outline: none;
+    padding: 15px;
+}
+
+.login_button{
+    background-color: #ee665c;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 2em;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login_button:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto;
+}
