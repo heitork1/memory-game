@@ -24,12 +24,17 @@ const createElement = (tag, className) => {
 let firstCard = '';
 let secondCard = '';
 
+
 const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-card');
 
   if (disabledCards.length === 18) {
     clearInterval(this.loop);
     alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML}`);
+
+    const nome = spanPlayer.innerHTML;
+    const tempo = timer.innerHTML;
+    cadastraBanco(nome, tempo);
   }
 }
 
