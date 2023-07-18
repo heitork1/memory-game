@@ -1,3 +1,4 @@
+
 const grid = document.querySelector('.grid');
 const spanPlayer = document.querySelector('.player');
 const timer = document.querySelector('.timer');
@@ -14,7 +15,6 @@ const characters = [
   'tuco',
   'walter',
 ];
-
 const createElement = (tag, className) => {
   const element = document.createElement(tag);
   element.className = className;
@@ -24,6 +24,27 @@ const createElement = (tag, className) => {
 let firstCard = '';
 let secondCard = '';
 
+const cadastraBanco = (tempo) => {
+  const data = { tempo }
+  fetch('/cadastrar-tempo', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+    .then(response => {
+      if (response.ok) {
+        console.log('Tempo cadastrado no banco de dados com sucesso!');
+      } else {
+        console.error('Erro ao cadastrar tempo no banco de dados.');
+      }
+    })
+    .catch(error => {
+      console.error('Erro ao cadastrar tempo no banco de dados:', error);
+    });
+    window.location.href = "/pages/recordes-pessoais"
+};
 
 const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-card');
@@ -31,10 +52,9 @@ const checkEndGame = () => {
   if (disabledCards.length === 18) {
     clearInterval(this.loop);
     alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML}`);
-
-    const nome = spanPlayer.innerHTML;
+    
     const tempo = timer.innerHTML;
-    cadastraBanco(nome, tempo);
+    cadastraBanco (tempo);
   }
 }
 
