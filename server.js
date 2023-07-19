@@ -102,7 +102,7 @@ app.post('/cadastrar-tempo', (req, res) => {
 });
 
 app.get('/pages/recordes-pessoais', (req, res) => {
-  connection.query(`SELECT nome, segundos, data FROM usuario INNER JOIN tempo ON usuario.idusuario = tempo.id_usuario WHERE usuario.idusuario = ${req.session.userID}`,
+  connection.query(`SELECT nome, segundos, data FROM usuario INNER JOIN tempo ON usuario.idusuario = tempo.id_usuario WHERE usuario.idusuario = ${req.session.userID} ORDER BY segundos`,
     function (err, rows) {
       if (!err) {
 
@@ -123,6 +123,14 @@ app.get('/pages/recordes-pessoais', (req, res) => {
         console.log(err)
       }
     })
+})
+
+app.get("/pages/ranking-geral", (req, res) =>{
+  const filePath = path.join(__dirname, "pages", "ranking-geral.ejs");
+  const html = fs.readFileSync(filePath, "utf8");
+  
+  
+  res.send(ejs.render(html))
 })
 
 app.get('/', (req, res) => {
