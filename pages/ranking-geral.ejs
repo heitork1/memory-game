@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranking Geral</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="/css/ranking.css">
 </head>
+
 <body>
-    <h1>poi</h1>
+    <main>
+        <h1>Ranking Geral <img src="/img/podio.png" alt=""></h1>
+        <a href=""><button id="sair"><img src="/img/sair.png" alt="">Logout</button></a>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Segundos</th>
+                <th>Data</th>
+            </tr>
+            <% for (let i=0; i < dados.length; i++) { %>
+
+                <tr>
+                    <td>
+                        <%= dados[i].nome %>
+                    </td>
+                    <td>
+                        <%= dados[i].segundos %>
+                    </td>
+                    <td>
+                        <%= dados[i].data %>
+                    </td>
+                </tr>
+                <% } %>
+        </table>
+        <div class="links">
+            <a href="/pages/recordes-pessoais"><button id="voltar"><img src="/img/voltar.png" alt="">Voltar</button></a>
+            <a href="/pages/game.html"><button id="novamente"><img src="/img/novamente.png" alt="">Jogar <br>Novamente</button></a>
+        </div>
+    </main>
 </body>
+
 </html>

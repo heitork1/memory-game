@@ -125,18 +125,35 @@ app.get('/pages/recordes-pessoais', (req, res) => {
     })
 })
 
-app.get("/pages/ranking-geral", (req, res) =>{
-  const filePath = path.join(__dirname, "pages", "ranking-geral.ejs");
-  const html = fs.readFileSync(filePath, "utf8");
-  
-  
-  res.send(ejs.render(html))
+app.get("/pages/ranking-geral", (req, res) => {
+  connection.query("Select nome, segundos, data FROM usuario INNER JOIN tempo ON usuario.idusuario = tempo.id_usuario ORDER BY segundos", (err, rows) => {
+    if (!err) {
+      for (let i = 0; i < rows.length; i++) {
+        const dataPedido = moment(rows[i].data).format(
+          "DD/MM/YYYY HH:mm:ss"
+        );
+        rows[i].data = dataPedido;
+      }
+      const filePath = path.join(__dirname, "pages", "ranking-geral.ejs");
+      const html = fs.readFileSync(filePath, "utf8");
+      const renderedHtml = ejs.render(html, {
+        dados: rows
+      })
+      res.send(renderedHtml)
+    } else {
+      console.log(err)
+    }
+  })
 })
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + "/index.html")
 })
 
+app.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect("/");
+})
 app.listen(3002, () => {
   console.log("Servidor rodando na porta 3002!");
 });
