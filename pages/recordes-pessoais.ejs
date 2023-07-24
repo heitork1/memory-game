@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,42 @@
     <link rel="stylesheet" href="../css/recordes.css">
     <title>Recordes Pessoais</title>
 </head>
-<body>
-    <a href="/logout"><button>Logout</button></a>
-    <main>
-        <header><h1>Seus Recordes</h1>
-        </header>
-        <table>
-            <tr>
-                <th>Nome</th>
-                <th>Segundos</th>
-                <th>Data</th>
-            </tr>
-            <% for (let i=0; i < dados.length; i++) { %>
 
-            <tr>
-                <td><%= dados[i].nome %></td>
-                <td><%= dados[i].segundos %></td>
-                <td><%= dados[i].data %></td>
-            </tr>
-            <% } %>
-        </table>
+<body>
+    <a href="/logout"><button id="sair"><img src="/img/sair.png" alt="">Logout</button></a>
+    <main>
+        <header>
+            <h1>Seus Recordes  <img src="/img/coroa.png" alt=""></h1>
+        </header>
+        <div class="fundo">
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Segundos</th>
+                    <th>Data</th>
+                </tr>
+                <% for (let i=0; i < dados.length; i++) { %>
+
+                    <tr class="dados">
+                        <td>
+                            <%= dados[i].nome %>
+                        </td>
+                        <td>
+                            <%= dados[i].segundos %>
+                        </td>
+                        <td>
+                            <%= dados[i].data %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
     </main>
-    
-    <a href="/pages/game.html"><button>Jogar novamente</button></a>
-    <a href="/pages/ranking-geral"><button>Ranking Geral</button></a>
+    <div id="links">
+        <a href="/pages/game.html"><button id="novamente"><img src="/img/novamente.png" alt="">Jogar
+                <br>Novamente</button></a>
+        <a href="/pages/ranking-geral"><button id="ranking"><img src="/img/podio.png" alt="">Ranking Geral</button></a>
+    </div>
 </body>
+
 </html>

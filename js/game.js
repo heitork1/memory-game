@@ -11,7 +11,6 @@ const characters = [
   'jesse',
   'mike',
   'saul',
-
   'tuco',
   'walter',
 ];
@@ -43,7 +42,7 @@ const cadastraBanco = (tempo) => {
     .catch(error => {
       console.error('Erro ao cadastrar tempo no banco de dados:', error);
     });
-    window.location.href = "/pages/recordes-pessoais"
+  window.location.href = "/pages/recordes-pessoais"
 };
 
 const checkEndGame = () => {
@@ -52,11 +51,12 @@ const checkEndGame = () => {
   if (disabledCards.length === 18) {
     clearInterval(this.loop);
     alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML}`);
-    
+
     const tempo = timer.innerHTML;
-    cadastraBanco (tempo);
+    cadastraBanco(tempo);
   }
 }
+
 
 const checkCards = () => {
   const firstCharacter = firstCard.getAttribute('data-character');
@@ -104,7 +104,7 @@ const revealCard = ({ target }) => {
 
     checkCards();
 
-  }  
+  }
 }
 
 const createCard = (character) => {
@@ -125,7 +125,7 @@ const createCard = (character) => {
 }
 
 const loadGame = () => {
-  const duplicateCharacters = [ ...characters, ...characters ];
+  const duplicateCharacters = [...characters, ...characters];
 
   const shuffledArray = duplicateCharacters.sort(() => Math.random() - 0.5);
 

@@ -77,7 +77,7 @@ app.post('/', (req, res) => {
       console.log("usuário já cadastrado");
       res.redirect('/pages/game.html');
     } else {
-      res.send("<script> window.location.href = '/'; alert('Senha incorreta!')</script>");
+      res.status(400).send('Usuário existe... mas a senha está incorreta!');
     }
   });
 });

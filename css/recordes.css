@@ -9,12 +9,89 @@ align-items: center;
 height: 90vh;
 justify-content: center;
 }
-
-table{
+h1{
+    text-align: center;
+    margin-top: 6vh;
     background-color: rgb(162, 144, 120);
     border-radius: 8px;
+    width:40vw;
+    margin: auto;
+    padding-bottom: 2vh;
+    padding-top: 1vh;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 img{
+    margin-left: 1vh;
+}
+.fundo{
+    background-color: rgb(162, 144, 120);
+    height: 40vh;
+    border-radius: 8px;
+    margin-top: 2vh;
+    opacity: 0.9;
+}
+table{
+    margin-top: 1vh;
     width: 50vw;
+   border-collapse: separate;
+   border-spacing: 10px
 }
 table td{
     text-align: center;
+}
+table th{
+    margin-bottom: 1vh;
+}
+.dados{
+    margin-top: 1vh;
+}
+#sair{
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    padding: 1vh;
+    font-size: 18px;
+    position: absolute;
+    background-color: #ee665c;
+    border-radius: 10px;
+    left: 80vw;
+    top: 30vh;
+}
+#sair img{
+    height: 6vh;
+}
+#novamente{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding: 1vh;
+    border-radius: 10px;
+    background-color: #ee665c;
+}
+a{
+    text-decoration: none;
+}
+#links{
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    margin: auto;
+    margin-top: -4vh;
+}
+#ranking{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding: 1vh;
+    border-radius: 10px;
+    background-color: #ee665c;
+}
+button{
+    cursor: pointer;
+}
+img{
+    margin-right: 0.5vw;
 }
